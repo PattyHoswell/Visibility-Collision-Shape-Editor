@@ -1,0 +1,767 @@
+[gd_scene load_steps=4 format=3 uid="uid://1v521avwyqk0"]
+
+[ext_resource type="Script" path="res://addons/visibility_collision_shape_editor/visibility_collision_shape_layer_window.gd" id="1_qssyj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71fdr"]
+bg_color = Color(0.788235, 0, 0.00392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aucrd"]
+bg_color = Color(0.52549, 0, 0.00392157, 1)
+
+[node name="VisibilityWindow" type="Window" node_paths=PackedStringArray("_enable_all_button", "_disable_all_button", "all_layer_buttons")]
+title = "Visibility Layer"
+size = Vector2i(250, 140)
+transient = true
+exclusive = true
+unresizable = true
+extend_to_title = true
+script = ExtResource("1_qssyj")
+_enable_all_button = NodePath("CanvasLayer/HBoxContainer/EnableAll")
+_disable_all_button = NodePath("CanvasLayer/HBoxContainer/DisableAll")
+all_layer_buttons = [NodePath("CanvasLayer/GridContainer/Panel/GridContainer/Layer1"), NodePath("CanvasLayer/GridContainer/Panel/GridContainer/Layer2"), NodePath("CanvasLayer/GridContainer/Panel/GridContainer/Layer3"), NodePath("CanvasLayer/GridContainer/Panel/GridContainer/Layer4"), NodePath("CanvasLayer/GridContainer/Panel/GridContainer/Layer5"), NodePath("CanvasLayer/GridContainer/Panel/GridContainer/Layer6"), NodePath("CanvasLayer/GridContainer/Panel/GridContainer/Layer7"), NodePath("CanvasLayer/GridContainer/Panel/GridContainer/Layer8"), NodePath("CanvasLayer/GridContainer/Panel2/GridContainer/Layer9"), NodePath("CanvasLayer/GridContainer/Panel2/GridContainer/Layer10"), NodePath("CanvasLayer/GridContainer/Panel2/GridContainer/Layer11"), NodePath("CanvasLayer/GridContainer/Panel2/GridContainer/Layer12"), NodePath("CanvasLayer/GridContainer/Panel2/GridContainer/Layer13"), NodePath("CanvasLayer/GridContainer/Panel2/GridContainer/Layer14"), NodePath("CanvasLayer/GridContainer/Panel2/GridContainer/Layer15"), NodePath("CanvasLayer/GridContainer/Panel2/GridContainer/Layer16"), NodePath("CanvasLayer/GridContainer/Panel3/GridContainer/Layer17"), NodePath("CanvasLayer/GridContainer/Panel3/GridContainer/Layer18"), NodePath("CanvasLayer/GridContainer/Panel3/GridContainer/Layer19"), NodePath("CanvasLayer/GridContainer/Panel3/GridContainer/Layer20"), NodePath("CanvasLayer/GridContainer/Panel3/GridContainer/Layer21"), NodePath("CanvasLayer/GridContainer/Panel3/GridContainer/Layer22"), NodePath("CanvasLayer/GridContainer/Panel3/GridContainer/Layer23"), NodePath("CanvasLayer/GridContainer/Panel3/GridContainer/Layer24"), NodePath("CanvasLayer/GridContainer/Panel4/GridContainer/Layer25"), NodePath("CanvasLayer/GridContainer/Panel4/GridContainer/Layer26"), NodePath("CanvasLayer/GridContainer/Panel4/GridContainer/Layer27"), NodePath("CanvasLayer/GridContainer/Panel4/GridContainer/Layer28"), NodePath("CanvasLayer/GridContainer/Panel4/GridContainer/Layer29"), NodePath("CanvasLayer/GridContainer/Panel4/GridContainer/Layer30"), NodePath("CanvasLayer/GridContainer/Panel4/GridContainer/Layer31"), NodePath("CanvasLayer/GridContainer/Panel4/GridContainer/Layer32")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="Panel" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 0.745098)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(250, 100)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -2.5
+offset_top = -70.0
+offset_right = 2.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/GridContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 4
+
+[node name="Layer1" type="Button" parent="CanvasLayer/GridContainer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel/GridContainer/Layer1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer2" type="Button" parent="CanvasLayer/GridContainer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel/GridContainer/Layer2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer3" type="Button" parent="CanvasLayer/GridContainer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel/GridContainer/Layer3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer4" type="Button" parent="CanvasLayer/GridContainer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel/GridContainer/Layer4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer5" type="Button" parent="CanvasLayer/GridContainer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel/GridContainer/Layer5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer6" type="Button" parent="CanvasLayer/GridContainer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel/GridContainer/Layer6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer7" type="Button" parent="CanvasLayer/GridContainer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel/GridContainer/Layer7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer8" type="Button" parent="CanvasLayer/GridContainer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel/GridContainer/Layer8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/GridContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 4
+
+[node name="Layer9" type="Button" parent="CanvasLayer/GridContainer/Panel2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel2/GridContainer/Layer9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer10" type="Button" parent="CanvasLayer/GridContainer/Panel2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel2/GridContainer/Layer10"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer11" type="Button" parent="CanvasLayer/GridContainer/Panel2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel2/GridContainer/Layer11"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "11"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer12" type="Button" parent="CanvasLayer/GridContainer/Panel2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel2/GridContainer/Layer12"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "12"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer13" type="Button" parent="CanvasLayer/GridContainer/Panel2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel2/GridContainer/Layer13"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "13"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer14" type="Button" parent="CanvasLayer/GridContainer/Panel2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel2/GridContainer/Layer14"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "14"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer15" type="Button" parent="CanvasLayer/GridContainer/Panel2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel2/GridContainer/Layer15"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer16" type="Button" parent="CanvasLayer/GridContainer/Panel2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel2/GridContainer/Layer16"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "16"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="Panel" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/GridContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 4
+
+[node name="Layer17" type="Button" parent="CanvasLayer/GridContainer/Panel3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel3/GridContainer/Layer17"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "17"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer18" type="Button" parent="CanvasLayer/GridContainer/Panel3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel3/GridContainer/Layer18"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "18"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer19" type="Button" parent="CanvasLayer/GridContainer/Panel3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel3/GridContainer/Layer19"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "19"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer20" type="Button" parent="CanvasLayer/GridContainer/Panel3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel3/GridContainer/Layer20"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer21" type="Button" parent="CanvasLayer/GridContainer/Panel3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel3/GridContainer/Layer21"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "21"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer22" type="Button" parent="CanvasLayer/GridContainer/Panel3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel3/GridContainer/Layer22"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "22"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer23" type="Button" parent="CanvasLayer/GridContainer/Panel3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel3/GridContainer/Layer23"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "23"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer24" type="Button" parent="CanvasLayer/GridContainer/Panel3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel3/GridContainer/Layer24"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "24"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel4" type="Panel" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/GridContainer/Panel4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 4
+
+[node name="Layer25" type="Button" parent="CanvasLayer/GridContainer/Panel4/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel4/GridContainer/Layer25"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "25"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer26" type="Button" parent="CanvasLayer/GridContainer/Panel4/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel4/GridContainer/Layer26"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "26"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer27" type="Button" parent="CanvasLayer/GridContainer/Panel4/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel4/GridContainer/Layer27"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "27"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer28" type="Button" parent="CanvasLayer/GridContainer/Panel4/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel4/GridContainer/Layer28"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "28"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer29" type="Button" parent="CanvasLayer/GridContainer/Panel4/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel4/GridContainer/Layer29"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "29"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer30" type="Button" parent="CanvasLayer/GridContainer/Panel4/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel4/GridContainer/Layer30"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer31" type="Button" parent="CanvasLayer/GridContainer/Panel4/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel4/GridContainer/Layer31"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "31"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Layer32" type="Button" parent="CanvasLayer/GridContainer/Panel4/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71fdr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucrd")
+toggle_mode = true
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Panel4/GridContainer/Layer32"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "32"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="EnableAll" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Enable All"
+
+[node name="DisableAll" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Disable All"

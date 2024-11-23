@@ -1,0 +1,209 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctmsxwodcsri3"]
+
+[ext_resource type="PackedScene" uid="uid://xt1bt0mxtm7n" path="res://area_2d.tscn" id="1_paiqf"]
+[ext_resource type="Texture2D" uid="uid://c7wbql1uevmto" path="res://icon.svg" id="2_1luk1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gaoym"]
+font_size = 45
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vq8j"]
+size = Vector2(128.5, 128)
+
+[node name="Test Scene" type="Node2D"]
+
+[node name="Labels" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Labels"]
+offset_left = 7.0
+offset_top = -64.0
+offset_right = 388.0
+offset_bottom = -1.0
+text = "LAYER 1"
+label_settings = SubResource("LabelSettings_gaoym")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label2" type="Label" parent="Labels"]
+offset_left = 7.0
+offset_top = 135.0
+offset_right = 388.0
+offset_bottom = 198.0
+text = "LAYER 2"
+label_settings = SubResource("LabelSettings_gaoym")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3and4" type="Label" parent="Labels"]
+offset_left = 7.0
+offset_top = 343.0
+offset_right = 388.0
+offset_bottom = 406.0
+text = "LAYER 3 & 4"
+label_settings = SubResource("LabelSettings_gaoym")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3and5" type="Label" parent="Labels"]
+offset_left = 7.0
+offset_top = 551.0
+offset_right = 388.0
+offset_bottom = 614.0
+text = "LAYER 4 & 5"
+label_settings = SubResource("LabelSettings_gaoym")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label5" type="Label" parent="Labels"]
+offset_left = 426.0
+offset_top = -64.0
+offset_right = 807.0
+offset_bottom = -1.0
+text = "LAYER 5
+"
+label_settings = SubResource("LabelSettings_gaoym")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label6" type="Label" parent="Labels"]
+offset_left = 427.0
+offset_top = 135.0
+offset_right = 808.0
+offset_bottom = 198.0
+text = "LAYER 6"
+label_settings = SubResource("LabelSettings_gaoym")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label7and9" type="Label" parent="Labels"]
+offset_left = 433.0
+offset_top = 343.0
+offset_right = 814.0
+offset_bottom = 406.0
+text = "LAYER 7 & 9"
+label_settings = SubResource("LabelSettings_gaoym")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label7and10" type="Label" parent="Labels"]
+offset_left = 769.0
+offset_top = 343.0
+offset_right = 1150.0
+offset_bottom = 406.0
+text = "LAYER 10 & 11"
+label_settings = SubResource("LabelSettings_gaoym")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label8and10" type="Label" parent="Labels"]
+offset_left = 431.0
+offset_top = 551.0
+offset_right = 812.0
+offset_bottom = 614.0
+text = "LAYER 8 & 10"
+label_settings = SubResource("LabelSettings_gaoym")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label8and11" type="Label" parent="Labels"]
+offset_left = 769.0
+offset_top = 551.0
+offset_right = 1150.0
+offset_bottom = 614.0
+text = "LAYER 11 & 12"
+label_settings = SubResource("LabelSettings_gaoym")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label10" type="Label" parent="Labels"]
+offset_left = 751.0
+offset_top = -64.0
+offset_right = 1132.0
+offset_bottom = -1.0
+text = "LAYER 10"
+label_settings = SubResource("LabelSettings_gaoym")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Layer1(1)" parent="." instance=ExtResource("1_paiqf")]
+position = Vector2(64, 64)
+
+[node name="Layer1(2)" parent="." instance=ExtResource("1_paiqf")]
+position = Vector2(197, 66)
+
+[node name="Layer1(3)" parent="." instance=ExtResource("1_paiqf")]
+position = Vector2(332, 65)
+
+[node name="Layer2" parent="." instance=ExtResource("1_paiqf")]
+position = Vector2(200, 272)
+collision_layer = 2
+
+[node name="Layer3and4" parent="." instance=ExtResource("1_paiqf")]
+position = Vector2(201, 482)
+collision_layer = 12
+
+[node name="Layer4and5" parent="." instance=ExtResource("1_paiqf")]
+position = Vector2(201, 697)
+collision_layer = 24
+
+[node name="Layer5" type="Area2D" parent="."]
+position = Vector2(614, 69)
+collision_layer = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer5"]
+texture = ExtResource("2_1luk1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Layer5"]
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[node name="Layer6" type="Area2D" parent="."]
+position = Vector2(619, 267)
+collision_layer = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer6"]
+texture = ExtResource("2_1luk1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Layer6"]
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[node name="Layer7and9" type="Area2D" parent="."]
+position = Vector2(622, 477)
+collision_layer = 320
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer7and9"]
+texture = ExtResource("2_1luk1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Layer7and9"]
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[node name="Layer8and10" type="Area2D" parent="."]
+position = Vector2(624, 694)
+collision_layer = 640
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer8and10"]
+texture = ExtResource("2_1luk1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Layer8and10"]
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[node name="Layer10(1)" type="CollisionShape2D" parent="."]
+visibility_layer = 512
+position = Vector2(945, 67)
+shape = SubResource("RectangleShape2D_4vq8j")
+
+[node name="Layer10(2)" type="CollisionShape2D" parent="."]
+light_mask = 0
+visibility_layer = 512
+position = Vector2(945, 266)
+shape = SubResource("RectangleShape2D_4vq8j")
+
+[node name="Layer11" type="CollisionShape2D" parent="."]
+light_mask = 512
+visibility_layer = 1024
+position = Vector2(945, 478)
+shape = SubResource("RectangleShape2D_4vq8j")
+
+[node name="Layer11and12" type="CollisionShape2D" parent="."]
+light_mask = 512
+visibility_layer = 3072
+position = Vector2(945, 693)
+shape = SubResource("RectangleShape2D_4vq8j")
