@@ -19,8 +19,8 @@ func _set_all_layer(enable: bool) -> void:
 		var button = all_layer_buttons[idx]
 		button.set_pressed_no_signal(enable)
 		visibility_ep.enabled_layers[idx] = enable
-	visibility_ep._visibility_eip.set_collision_visibility(enable and visibility_ep.is_set_visible(visibility_ep.name_to_id["local_collision_id"]), true)
-	visibility_ep._visibility_eip.set_collision_visibility(enable and visibility_ep.is_set_visible(visibility_ep.name_to_id["instanced_collision_id"]), false)
+	visibility_ep._visibility_shape_handler.set_collision_visibility(enable and visibility_ep.is_set_visible(visibility_ep.name_to_id["local_collision_id"]), true)
+	visibility_ep._visibility_shape_handler.set_collision_visibility(enable and visibility_ep.is_set_visible(visibility_ep.name_to_id["instanced_collision_id"]), false)
 	VisibilityCollisionShapeSaveHandler.save_file(visibility_ep)
 
 func sync_button_layer() -> void:
@@ -28,8 +28,8 @@ func sync_button_layer() -> void:
 		var button = all_layer_buttons[idx]
 		button.toggled.connect(func(toggled_on: bool):
 			visibility_ep.enabled_layers[idx] = toggled_on
-			visibility_ep._visibility_eip.set_collision_visibility(visibility_ep.is_set_visible(visibility_ep.name_to_id["local_collision_id"]), true)
-			visibility_ep._visibility_eip.set_collision_visibility(visibility_ep.is_set_visible(visibility_ep.name_to_id["instanced_collision_id"]), false))
+			visibility_ep._visibility_shape_handler.set_collision_visibility(visibility_ep.is_set_visible(visibility_ep.name_to_id["local_collision_id"]), true)
+			visibility_ep._visibility_shape_handler.set_collision_visibility(visibility_ep.is_set_visible(visibility_ep.name_to_id["instanced_collision_id"]), false))
 		
 		button.button_pressed = visibility_ep.enabled_layers[idx]
 		
