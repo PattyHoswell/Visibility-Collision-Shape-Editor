@@ -7,10 +7,19 @@ class_name VisibilityCollisionShapeLayerWindow extends Window
 @export var all_layer_buttons : Array[Button]
 
 var visibility_ep : VisibilityCollisionShapeEP
-var attached_menu : PopupMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Change the button color to the project settings accent color
+	var editor_settings = Engine.get_singleton("EditorInterface").get_editor_settings()
+	var project_accent_color = editor_settings.get_setting("interface/theme/accent_color")
+	
+	# We only need to set from one of the button because they are all using the same resource
+	var button = all_layer_buttons[0]
+	button.get_theme_stylebox("normal").bg_color = project_accent_color * 0.8
+	button.get_theme_stylebox("pressed").bg_color = project_accent_color
+	button.get_theme_stylebox("hover").bg_color = project_accent_color
+	
 	_enable_all_button.pressed.connect(_set_all_layer.bind(true))
 	_disable_all_button.pressed.connect(_set_all_layer.bind(false))
 

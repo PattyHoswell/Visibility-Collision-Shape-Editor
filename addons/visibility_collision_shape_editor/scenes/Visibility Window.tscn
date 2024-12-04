@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://addons/visibility_collision_shape_editor/visibility_collision_shape_layer_window.gd" id="1_qssyj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71fdr"]
-bg_color = Color(0.788235, 0, 0.00392157, 1)
+bg_color = Color(0.41, 0.61, 0.91, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aucrd"]
-bg_color = Color(0.52549, 0, 0.00392157, 1)
+bg_color = Color(0.328, 0.488, 0.728, 0.8)
 
 [node name="VisibilityWindow" type="Window" node_paths=PackedStringArray("_enable_all_button", "_disable_all_button", "all_layer_buttons")]
 title = "Visibility Layer"

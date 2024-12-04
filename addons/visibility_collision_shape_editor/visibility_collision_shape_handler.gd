@@ -83,11 +83,13 @@ func set_collision_visibility(enable: bool, local: bool):
 
 func _has_checked_layer(node: Node) -> bool:
 	for layer in _visibility_ep.enabled_layers:
+		# Check if any layer the node is on is enabled
 		if _visibility_ep.enabled_layers[layer] \
 		and _is_valid_parent(node) \
 		and node.get_parent().get_collision_layer_value(layer + 1):
 			return true
 		
+		# This is for case where the collision shape doesnt have a valid parent but has a shape
 		elif _visibility_ep.enabled_layers[layer] \
 		and not _is_valid_parent(node) \
 		and layer < 20 \
@@ -95,6 +97,8 @@ func _has_checked_layer(node: Node) -> bool:
 		and node.get_visibility_layer_bit(layer):
 			return true
 		
+		# Check if the parent is not valid also don't have get_visibility_layer_bit method
+		# This shouldn't happend but if it does then enable them anyway because we don't know how to check if they are "valid"
 		elif not _is_valid_parent(node) and not node.has_method("get_visibility_layer_bit"):
 			return true
 	

@@ -46,6 +46,7 @@ func _enter_tree() -> void:
 	VisibilityCollisionShapeSaveHandler.load_file(self)
 
 func _exit_tree() -> void:
+	# Delete OUR menu from the OG menu
 	var idx = _2d_view_menu.get_item_index(name_to_id["collision_visibility_2d_id"])
 	if idx != -1:
 		_2d_view_menu.remove_item(idx)
@@ -54,12 +55,19 @@ func _exit_tree() -> void:
 	if idx != -1:
 		_3d_view_menu.remove_item(idx)
 	
+	# Delete the thread used for saving if it exist
 	if VisibilityCollisionShapeSaveHandler._thread:
 		VisibilityCollisionShapeSaveHandler._thread.wait_to_finish()
 		VisibilityCollisionShapeSaveHandler._thread = null
 	
+	# Clear everything from OUR menu so we don't get memory leaks
+	# Technically we could use Array to reduce the repetitive code
+	# But at this point in time we want to clear our resources with as little overhead as possible
 	_2d_popup_menu.clear(true)
 	_3d_popup_menu.clear(true)
+	
+	_2d_popup_menu.queue_free()
+	_3d_popup_menu.queue_free()
 
 func _on_scene_changed(root_node: Node) -> void:
 	if not is_instance_valid(root_node):
@@ -121,7 +129,7 @@ func _find_menu_button(target: Node) -> MenuButton:
 	return null
 
 func _on_press_visibility(idx: int, collision_visibility_menu: PopupMenu, parent_popup: PopupMenu) -> void:
-	if idx == name_to_id["show_all_id"]:
+	if idx == collision_visibility_menu.get_item_index(name_to_id["show_all_id"]):
 		var set_enable : bool = not collision_visibility_menu.is_item_checked(idx)
 		collision_visibility_menu.set_item_checked(idx, set_enable)
 		
@@ -131,7 +139,7 @@ func _on_press_visibility(idx: int, collision_visibility_menu: PopupMenu, parent
 		
 		VisibilityCollisionShapeSaveHandler.save_file(self)
 		
-	elif idx == name_to_id["local_collision_id"]:
+	elif idx == collision_visibility_menu.get_item_index(name_to_id["local_collision_id"]):
 		var set_enable : bool = not collision_visibility_menu.is_item_checked(idx)
 		_set_collision_visibility(collision_visibility_menu.get_item_index(name_to_id["local_collision_id"]), collision_visibility_menu, set_enable)
 		
@@ -140,12 +148,12 @@ func _on_press_visibility(idx: int, collision_visibility_menu: PopupMenu, parent
 		if set_enable and collision_visibility_menu.is_item_checked(instanced_collision_idx):
 			collision_visibility_menu.set_item_checked(collision_visibility_menu.get_item_index(name_to_id["show_all_id"]), true)
 		
-		elif not set_enable and not collision_visibility_menu.is_item_checked(instanced_collision_idx):
+		elif not set_enable:
 			collision_visibility_menu.set_item_checked(collision_visibility_menu.get_item_index(name_to_id["show_all_id"]), false)
 		
 		VisibilityCollisionShapeSaveHandler.save_file(self)
 		
-	elif idx == name_to_id["instanced_collision_id"]:
+	elif idx == collision_visibility_menu.get_item_index(name_to_id["instanced_collision_id"]):
 		var set_enable : bool = not collision_visibility_menu.is_item_checked(idx)
 		_set_collision_visibility(collision_visibility_menu.get_item_index(name_to_id["instanced_collision_id"]), collision_visibility_menu, set_enable)
 		
@@ -154,24 +162,27 @@ func _on_press_visibility(idx: int, collision_visibility_menu: PopupMenu, parent
 		if set_enable and collision_visibility_menu.is_item_checked(local_collision_idx):
 			collision_visibility_menu.set_item_checked(collision_visibility_menu.get_item_index(name_to_id["show_all_id"]), true)
 		
-		elif not set_enable and not collision_visibility_menu.is_item_checked(local_collision_idx):
+		elif not set_enable:
 			collision_visibility_menu.set_item_checked(collision_visibility_menu.get_item_index(name_to_id["show_all_id"]), false)
 		
 		VisibilityCollisionShapeSaveHandler.save_file(self)
 		
-	elif idx == name_to_id["individual_layer_id"]:
+	elif idx == collision_visibility_menu.get_item_index(name_to_id["individual_layer_id"]):
 		# Hide the View menu
 		parent_popup.visible = false
 		
 		var popup = load("res://addons/visibility_collision_shape_editor/scenes/Visibility Window.tscn").instantiate()
 		popup.close_requested.connect(func(): popup.queue_free())
 		popup.visibility_ep = self
-		EditorInterface.popup_dialog_centered(popup)
+		
+		# Get from singleton instead of using EditorInterface directly because it only exist on the editor
+		Engine.get_singleton("EditorInterface").popup_dialog_centered(popup)
 		
 		# Sync the layer button to the current settings
 		popup.sync_button_layer()
 		
-		VisibilityCollisionShapeSaveHandler.save_file(self)
+		# I don't remember why its calling this originally but i think its redundant now
+		#VisibilityCollisionShapeSaveHandler.save_file(self)
 
 # Enable/disable the Local/Instanced button
 func _set_collision_visibility(idx: int, collision_visibility_menu: PopupMenu, enable: bool) -> void:
